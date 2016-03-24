@@ -8,11 +8,11 @@ new flipPage('#viewcon', data, 6);
 
 功能
 -----------------------------------------------------
-#前一页flipPage.toFront
-#后一页flipPage.toBack
-#列表 flipPage.render
-#隔列颜色 flipPage.lineBackground
-#页数 flipPage.pageSize
+*前一页flipPage.toFront
+*后一页flipPage.toBack
+*列表 flipPage.render
+*隔列颜色 flipPage.lineBackground
+*页数 flipPage.pageSize
 
 
 Version 
