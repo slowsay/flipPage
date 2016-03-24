@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: flipPage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: flipPage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>define(function(require) {
+    /**
+     * @description 翻页类
+     * @class flipPage
+     * @see https://github.com/slowsay
+     * @param {string} view Dom id
+     * @param {json} data json数据
+     * @param {number} pagesize 每页多少条数据
+     */
+    var flipPage = function(view, data, pagesize) {
+        var tpl = '&lt;div class=viewcon>';
+        tpl += '&lt;ul class=vt>&lt;li>索引号&lt;/li>&lt;li>标题&lt;/li>&lt;li>发布日期&lt;/li>&lt;/ul>';
+        tpl += '&lt;ul class=vlist>&lt;/ul>';
+        tpl += '&lt;div class=pagebox>&lt;h5>共1页 / 当前第1页&lt;/h5>&lt;ul class=pagenav>&lt;li>首页&lt;/li>&lt;li>上一页&lt;/li>&lt;li>下一页&lt;/li>&lt;li>尾页&lt;/li>&lt;/ul>&lt;/div>';
+        tpl += '&lt;/div>';
+        $(view).append(tpl);
+        this.view = view + ' ';
+        this.cutid = 0;
+        this.pointer = 'pointer';
+        this.auto = 'auto';
+        this.data = data;
+        this.pagesize = pagesize;
+        this.maxpage = this.data.length % this.pagesize == 0 &amp;&amp; this.data.length > 0 ? this.data.length / this.pagesize : Math.ceil(this.data.length / this.pagesize);
+        this.render();
+        this.addTitleMain();
+        this.addEventListener();
+        this.exchangeClick([0, 1]);
+        this.version = '1.0.0';
+    };
+    /**
+     * @description 监听
+     * @method addEventListener
+     * @memberof flipPage
+     */
+    flipPage.prototype.addEventListener = function() {
+        var _this = this;
+        var _pagenav = $(this.view + '.pagenav li');
+        _pagenav.on('click', function(e) {
+            var _id = $(this).index();
+            switch(_id) {
+                case 0:
+                    //首页
+                    _this.cutid = 0;
+                    _this.render();
+                    _this.exchangeClick([0, 1]);
+                    break;
+                case 1:
+                    //上一页
+                    _this.toFront();
+                    break;
+                case 2:
+                    //下一页
+                    _this.toBack();
+                    break;
+                case 3:
+                    //尾页
+                    _this.cutid = _this.maxpage - 1;
+                    _this.render();
+                    _this.exchangeClick([2, 3]);
+                    break;
+            }
+        });
+    };
+    /**
+     * @description 移除监听
+     * @method removeEventListener
+     * @memberof flipPage
+     */
+    flipPage.prototype.removeEventListener = function() {
+        $(this.view + '.pagenav li').off();
+    };
+    /**
+     * @description 切换页数是否可点
+     * @method exchangeClick
+     * @param {array} array 数组
+     * @memberof flipPage
+     */
+    flipPage.prototype.exchangeClick = function(arr) {
+        var _nav = $(this.view + '.pagenav');
+        var _navli = _nav.find('li');
+        var _box = [0, 1, 2, 3];
+        for (var i = 0; i &lt; _box.length; i++) {
+            _navli.eq(i).removeAttr('class');
+        };
+        if (arr.length > 0)
+            for ( i = 0; i &lt; _box.length; i++) {
+                for (var j = 0; j &lt; arr.length; j++) {
+                    if (arr[j] == _box[i])
+                        _box.splice(arr[j], 1), _navli.eq(arr[j]).addClass('cauto');
+                };
+            }
+        ;
+    };
+    /**
+     * @description 向前翻页
+     * @method toFront
+     * @memberof flipPage
+     */
+    flipPage.prototype.toFront = function() {
+        this.cutid--;
+        if (this.cutid &lt;= 0)
+            this.cutid = 0;
+        this.render();
+        this.cutid &lt; 1 ? this.exchangeClick([0, 1]) : this.exchangeClick([]);
+    };
+    /**
+     * @description 向后翻页
+     * @method toBack
+     * @memberof flipPage
+     */
+    flipPage.prototype.toBack = function() {
+        this.cutid++;
+        if (this.cutid >= this.maxpage - 1)
+            this.cutid = this.maxpage - 1;
+        this.render();
+        this.cutid >= this.maxpage - 1 ? this.exchangeClick([2, 3]) : this.exchangeClick([]);
+    };
+    /**
+     * @description 输出翻页列表
+     * @method render
+     * @memberof flipPage
+     */
+    flipPage.prototype.render = function() {
+        var _vlist = $(this.view + '.viewcon .vlist');
+        var len = this.cutid &lt; this.maxpage - 1 ? this.pagesize : this.data.length % this.pagesize == 0 ? this.pagesize : this.data.length % this.pagesize, _s = '';
+        for (var i = 0; i &lt; len; i++) {
+            var _id = this.cutid * this.pagesize + i;
+            _s += '&lt;li class=li0>' + this.data[_id].id + '&lt;/li>&lt;li class=li1>' + this.data[_id].title + '&lt;/li>&lt;li class=li2>' + this.data[_id].time + '&lt;/li>';
+        }
+        _vlist.html(_s);
+        $('.pagebox h5').html('共 &lt;span>' + this.maxpage + '&lt;/span> 页 / 当前第 &lt;span>' + (this.cutid + 1) + '&lt;/span> 页');
+        this.lineBackground(3);
+    };
+    /**
+     * @description 间隔列表底部颜色
+     * @method lineBackground
+     * @memberof flipPage
+     */
+    flipPage.prototype.lineBackground = function(id) {
+        var _vlist = $(this.view + '.viewcon .vlist'), _i;
+        for (var i = 0; i &lt; _vlist.find('li').length / 3; i++) {
+            if (i % (id - 1) == 1) {
+                _vlist.find('li').eq(id * i + 0).addClass('on');
+                _vlist.find('li').eq(id * i + 1).addClass('on');
+                _vlist.find('li').eq(id * i + 2).addClass('on');
+            }
+        }
+
+    };
+    /**
+     * @description 设置列表显示百分比
+     * @method addTitleMain
+     * @memberof flipPage
+     */
+    flipPage.prototype.addTitleMain = function() {
+        var _vtid = $(this.view + '.viewcon .vt');
+        var _vlistid = $('.viewcon .vlist');
+        var len = _vtid.find('li').length;
+        for (var i = 0; i &lt; len; i++) {
+            _vtid.find('li').eq(i).addClass('li' + i);
+            _vlistid.find('li').eq(i).addClass('li' + i);
+        }
+
+    };
+    /**
+     * @description 重设翻页值
+     * @method pageSize
+     * @param {number} value 数值
+     * @memberof flipPage
+     */
+    flipPage.prototype.pageSize = function(v) {
+        this.pagesize = v;
+        this.maxpage = this.data.length % this.pagesize == 0 &amp;&amp; this.data.length > 0 ? this.data.length / this.pagesize : Math.ceil(this.data.length / this.pagesize);
+    };
+    return flipPage;
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="flipPage.html">flipPage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu Mar 24 2016 22:41:16 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
