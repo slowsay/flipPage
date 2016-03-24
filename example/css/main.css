@@ -1,0 +1,19 @@
+body,html {margin:0;padding:0;font-size:12px;}
+div,dl,h1,h2,h3,h4,h5,ul,li{margin:0;padding:0;list-style-type: none;}
+
+.viewcon{width:1000px;font-size:14px;}
+.viewcon .vt,.viewcon .vlist {clear:both;text-indent:20px;}
+.viewcon .vt li,.viewcon .vlist li{width:30%;float:left;height:30px;line-height: 30px;}
+.viewcon .vt{background:#355e8d;height:30px;color:#fff;}
+.viewcon .vt .li0,.viewcon .vlist .li0{width:15%}
+.viewcon .vt .li1,.viewcon .vlist .li1{width:65%}
+.viewcon .vt .li2,.viewcon .vlist .li2{width:20%}
+/*列表*/
+.viewcon .vlist{margin:0 0 10px 0;width:100%;height:300px;}
+.viewcon .vlist .on{background:#f5f7f9}
+/*翻页*/
+.pagenav{clear:both;width:300px;margin:0 auto;height:30px;padding:10px 0;}
+.pagenav li{width:24%;height:25px;margin:0 1px;line-height:25px;float:left;text-align:center;cursor:pointer;color:#355e8d;border:1px solid #f0f0f0}
+.pagenav .cauto{cursor:auto;color: #333;border:none;}
+.pagenav .cauto:hover{background:none;color:#333;}
+.pagenav li:hover{background:#355e8d;color:#fff;}
