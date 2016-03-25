@@ -7,7 +7,7 @@ new flipPage('#viewcon', data, 6,{title:['标题0','标题1','标题2']});<br />
 </pre>
 就这么简单！<br />
 
-功能
+Functions
 -----------------------------------------------------
 *前一页flipPage.toFront<br />
 *后一页flipPage.toBack<br />
@@ -15,7 +15,7 @@ new flipPage('#viewcon', data, 6,{title:['标题0','标题1','标题2']});<br />
 *隔列颜色 flipPage.lineBackground<br />
 *页数 flipPage.pageSize<br />
 
-更新
+Update
 ------------------------------------------------------
 *add select<br />
 *add init<br />
