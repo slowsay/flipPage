@@ -2,6 +2,7 @@
 
 翻页类 ，经常要用到列表数据，所以写了一个翻页插件<br />
 <pre>
+var flipPage = require('../js/app/flipPage');
 new flipPage('#viewcon', data, 6,{title:['标题0','标题1','标题2']});<br />
 </pre>
 就这么简单！<br />
