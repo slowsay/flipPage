@@ -14,7 +14,16 @@ new flipPage('#viewcon', data, 6);<br />
 *隔列颜色 flipPage.lineBackground<br />
 *页数 flipPage.pageSize<br />
 
+更新
+------------------------------------------------------
+*add select<br />
+*add init<br />
+*add addPagekind<br />
+*add addPagemsg<br />
+*add addSelect<br />
+*add exchangeDate<br />
 
 Version 
 ------------------------------------------------------
 v1.0.0 update<br />
+v1.0.1 update<br />
