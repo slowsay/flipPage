@@ -54,7 +54,7 @@ define(function(require) {
      */
     var flipPage = require('flipPage');
     $('body').append('<div id=viewcon></div><div id=viewcon2></div>');
-    var _pp = new flipPage('#viewcon', data, 6);
-    var _kk = new flipPage('#viewcon2', data, 3);
+    var _pp = new flipPage('#viewcon', data, 6,{title:'标题',time:'时间',id:'索引号'});
+ 
 
 });
