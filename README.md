@@ -14,6 +14,7 @@ Functions
 *列表 flipPage.render<br />
 *隔列颜色 flipPage.lineBackground<br />
 *页数 flipPage.pageSize<br />
+*内容，索引精确定位flipPage.setIndex<br />
 
 Update
 ------------------------------------------------------
@@ -23,8 +24,10 @@ Update
 *add addPagemsg<br />
 *add addSelect<br />
 *add exchangeDate<br />
+*add setIndex<br />
 
 Version 
 ------------------------------------------------------
 v1.0.0 update<br />
 v1.0.1 update<br />
+v1.0.2 update <br />
