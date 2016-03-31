@@ -79,6 +79,6 @@ define(function(require) {
      * @method 翻页功能
      */
     var flipPage = require('flipPage');
-    $('body').append('<div id=viewcon></div><div id=viewcon2></div>');
+    $('body').append('<div id=viewcon></div>');
     new flipPage('#viewcon', data, 6,{title:['索引号','标题','时间']});
 });
