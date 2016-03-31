@@ -1,0 +1,26 @@
+body,html {margin:0;padding:0;font-size:12px;}
+div,dl,h1,h2,h3,h4,h5,ul,li{margin:0;padding:0;list-style-type: none;}
+/*翻页功能start*/
+.viewcon{width:100%;}
+.viewcon .vt,.viewcon .vlist {clear:both;text-indent:20px;}
+.viewcon .vt li,.viewcon .vlist li{width:30%;float:left;height:30px;line-height: 30px;}
+.viewcon .vt{background:#355e8d;height:40px;color:#fff;font-size:16px;}
+.viewcon .vt li{height:40px;line-height: 40px;}
+.viewcon .vt .li0,.viewcon .vlist .li0{width:20%}
+.viewcon .vt .li1,.viewcon .vlist .li1{width:60%}
+.viewcon .vt .li2,.viewcon .vlist .li2{width:20%}
+/*列表*/
+.viewcon .vlist{margin:0 0 10px 0;width:100%;height:300px;font-size:14px;}
+.viewcon .vlist .on{background:#f5f7f9}
+/*翻页*/
+.pagebox{clear:both;}
+.pagebox h5{float:left;font-weight:normal;text-indent:20px;height:30px;line-height:30px;padding:10px 5px 10px 0;}
+.pagebox h5 span{color:#333;}
+.pagebox h4{float:left;height:30px;padding:10px 0;line-height:30px;}
+.pagebox h4 select{height:30px;}
+.pagenav{float:right;width:300px;height:30px;padding:10px 0;}
+.pagenav li{width:22%;height:25px;margin:0 1px;line-height:25px;float:left;text-align:center;cursor:pointer;color:#355e8d;border:1px solid #a0a0a0}
+.pagenav .cauto{cursor:auto;color: #333;border:1px solid #f0f0f0;}
+.pagenav .cauto:hover{background:none;color:#333;}
+.pagenav li:hover{background:#355e8d;color:#fff;}
+/*翻页功能end*/
