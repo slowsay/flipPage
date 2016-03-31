@@ -80,7 +80,5 @@ define(function(require) {
      */
     var flipPage = require('flipPage');
     $('body').append('<div id=viewcon></div><div id=viewcon2></div>');
-    var _pp = new flipPage('#viewcon', data, 6,{title:['索引号','标题','时间']});
-    var _kk = new flipPage('#viewcon2', data,3, {title:['索引号','标题','时间']});
-
+    new flipPage('#viewcon', data, 6,{title:['索引号','标题','时间']});
 });
