@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "description": "FlipPage is checkPagelist and next page,front page etc.",
+    "name": "FlipPage",
+    "version": "1.0",
+    "minimum_chrome_version": "23",
+    "icons": {
+        "16": "images/16_16.png",
+        "128": "images/128_128.png"
+    },
+    "app": {
+        "background": {
+            "scripts": ["js/plugin.js"]
+        }
+    }
+}
