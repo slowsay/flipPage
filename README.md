@@ -9,27 +9,29 @@ new flipPage('#viewcon', data, 6,{title:['标题0','标题1','标题2']});<br />
 
 Functions
 -----------------------------------------------------
-*前一页flipPage.toFront<br />
-*后一页flipPage.toBack<br />
-*列表 flipPage.render<br />
-*隔列颜色 flipPage.lineBackground<br />
-*页数 flipPage.pageSize<br />
-*内容，索引精确定位flipPage.setIndex<br />
+<pre>
+*前一页flipPage.toFront
+*后一页flipPage.toBack
+*列表 flipPage.render
+*隔列颜色 flipPage.lineBackground
+*页数 flipPage.pageSize
+*内容，索引精确定位flipPage.setIndex
+</pre>
 
 Update
 ------------------------------------------------------
-*add select<br />
-*add init<br />
-*add addPagekind<br />
-*add addPagemsg<br />
-*add addSelect<br />
-*add exchangeDate<br />
-*add setIndex<br />
+<pre>
+*add select
+*add init
+*add addPagekind
+*add addPagemsg
+*add addSelect
+*add exchangeDate
+*add setIndex
+</pre>
 
 Version 
 ------------------------------------------------------
-v1.0.0 update<br />
-v1.0.1 update<br />
-v1.0.2 update <br />
-v1.0.3 update setZindex <br />
-v1.0.4 update chrome 
+<pre>
+v1.0.0 update
+</pre>
